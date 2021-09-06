@@ -33,19 +33,31 @@ app.get('/about', (req, res) => {
 })
 
 app.get('/help', (req, res) => {
-  res.send('Help Page')
+  res.render('help', {
+    title: 'Help',
+    name: 'Bhaskar Chetty',
+    message: 'This is the Help Page'
+  })
 })
 
 app.get('/weather', (req, res) => {
-  res.send('Weather Page')
-});
+  res.send('Weather')
+})
 
 app.get('/help/*', (req, res) => {
-  res.send('Help Resource not Found')
+  res.render('404', {
+    title: 'Help',
+    name: 'Bhaskar Chetty',
+    message: 'Help Resource Not Found'
+  })
 })
 
 app.get('*', (req, res) => {
-  res.send('404 - Page not Found')
+  res.render('404', {
+    title: '404',
+    name: 'Bhaskar Chetty',
+    message: 'Page Not Found'
+  })
 })
 
 app.listen(PORT, () => {
