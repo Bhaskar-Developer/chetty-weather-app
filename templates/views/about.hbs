@@ -6,12 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../img/weather.png">
   <link rel="stylesheet" href="/css/style.css">
-  <title>About Me</title>
+  <title>About Us</title>
 </head>
 <body>  
   <div class="main-content">
     {{>header}}
-    <img class="portrait" src="/img/me.png">
+    <p>This website uses two APIs to get the weather forcecast for a location.</p>
+    <p>The first one is the mapbox API. This API accepts the location and responds back with the longitude and latitide for the location.</p>
+    <p>The second one is the weather stack API. This API accepts the longitude and latitude from the mapbox API and then display the weather for the location.</p>
   </div>
   {{>footer}}  
 </body>
