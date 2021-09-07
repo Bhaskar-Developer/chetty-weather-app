@@ -9,9 +9,9 @@ weatherForm.addEventListener('submit', (e) => {
   let url;
   
   if(location === '') {
-    url = `http://localhost:3000/weather`
+    url = `/weather`
   } else {
-    url = `http://localhost:3000/weather?address=${location}` 
+    url = `/weather?address=${location}` 
   }
   
   messageOne.textContent = 'Loading...'
