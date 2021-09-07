@@ -1,7 +1,7 @@
 const request = require('request')
 
 const forecast = (latitude,longitude,callback) => {
-  const forecastUrl = `http://api.weatherstack.com/current?access_key=ab37469500e26e9b4070c0a4321a62df&query=${latitude},${longitude}&units=m`
+  const forecastUrl = `http://api.weatherstack.com/current?access_key=ab37469500e2c0a4321a62df&query=${latitude},${longitude}&units=m`
 
   request({ url: forecastUrl, json: true },(error,{ body } = {}) => {
     //This will run if there is an OS level error i.e. No internet

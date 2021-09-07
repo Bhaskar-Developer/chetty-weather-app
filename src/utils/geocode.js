@@ -2,7 +2,7 @@ const request = require('request')
 
 const geocode = (address, callback) => {
   const encodedAddress = encodeURIComponent(address)
-  const geocodeurl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodedAddress}.json?access_token=pk.eyJ1IjoiYmhhc2thcjA5NiIsImEiOiJja3NsaDc2OXAwNHdqMm5wMHFud3piNm5vIn0.mGn_nnt3W96M5ajLF2Ltgg&limit=1`
+  const geocodeurl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodedAddress}.json?access_token=pk.eyJ1IjoiYmhhc2thcjA5NiIsImEiOiJja3Nsa5wMHFud3piNm5vIn0.mGn_nnt3W96M5ajLF2Ltgg&limit=1`
 
   request({url:geocodeurl, json: true}, (error,{ body } = {}) => {
     //This will run if there is an OS level error Eg: No Internt
