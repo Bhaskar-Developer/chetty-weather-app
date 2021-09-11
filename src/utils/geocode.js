@@ -5,6 +5,8 @@ const geocode = (address, callback) => {
   const encodedAddress = encodeURIComponent(address)
   const geocodeurl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodedAddress}.json?access_token=${process.env.GEOCODE_KEY}&limit=1`
 
+  console.log('Geocode: ' ,process.env.GEOCODE_KEY)
+
   request({url:geocodeurl, json: true}, (error,{ body } = {}) => {
     //This will run if there is an OS level error Eg: No Internt
     if(error) {
