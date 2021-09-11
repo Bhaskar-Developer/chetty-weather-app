@@ -11,9 +11,10 @@
 <body>  
   <div class="main-content">
     {{>header}}
-    <p>This website uses two APIs to get the weather forcecast for a location.</p>
-    <p>The first one is the mapbox API. This API accepts the location and responds back with the longitude and latitide for the location.</p>
-    <p>The second one is the weather stack API. This API accepts the longitude and latitude from the mapbox API and then display the weather for the location.</p>
+    <p>This website uses two APIs to get the weather forecast for a city.</p>
+    <p><strong>Mapbox</strong>: This API accepts a city name and responds back with the longitude and latitude for this city.</p>
+  
+    <p><strong>Weatherstack</strong>: This API accepts the longitude and latitude of a city and displays the weather forecast.</p>
   </div>
   {{>footer}}  
 </body>

@@ -1,7 +1,8 @@
 const request = require('request')
+const dotenv = require('dotenv').config()
 
 const forecast = (latitude,longitude,callback) => {
-  const forecastUrl = `http://api.weatherstack.com/current?access_key=ab37469500e1a62df&query=${latitude},${longitude}&units=m`
+  const forecastUrl = `http://api.weatherstack.com/current?access_key=${process.env.WEATHER_KEY}&query=${latitude},${longitude}&units=m`
 
   request({ url: forecastUrl, json: true },(error,{ body } = {}) => {
     //This will run if there is an OS level error i.e. No internet
@@ -15,7 +16,7 @@ const forecast = (latitude,longitude,callback) => {
       return
     }
     //This will run if there is no error
-    callback(undefined,`${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} degrees out but feels like ${body.current.feelslike} degrees. The humidity is ${body.current.humidity}%`)
+    callback(undefined,`${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} degrees out but feels like ${body.current.feelslike} degrees. The humidity is ${body.current.humidity}%.`)
   })
 }
 
