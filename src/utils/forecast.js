@@ -16,7 +16,13 @@ const forecast = (latitude,longitude,callback) => {
       return
     }
     //This will run if there is no error
-    callback(undefined,`${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} degrees out but feels like ${body.current.feelslike} degrees. The humidity is ${body.current.humidity}%.`)
+    callback(undefined,{
+      forecast: body.current.weather_descriptions[0],
+      temperature: body.current.temperature,
+      feelslike: body.current.feelslike,
+      humidity: body.current.humidity,
+      icon: body.current.weather_icons
+    })
   })
 }
 
