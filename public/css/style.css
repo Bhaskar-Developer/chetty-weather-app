@@ -55,6 +55,10 @@ button {
 }
 
 .weather-image {
-  width: 30px;
-  height: 30px;
+  width: 160px;
+  height: 160px;
+}
+
+#image-td {
+  padding-left: 20px;
 }
