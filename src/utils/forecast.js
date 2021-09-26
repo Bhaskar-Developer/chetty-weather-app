@@ -10,9 +10,9 @@ const forecast = (latitude,longitude,callback) => {
       callback('Unable able to reach Weather Server!', undefined)
       return
     }
-    //This will run if the specified coordinates are invalid
+    //This will run if the specified coordinates are invalid. This will also run if the API limit is reached!
     if(body.error) {
-      callback('Entered Details are invalid', undefined)
+      callback('Unable to fetch the Weather Forecast. Please try again later.', undefined)
       return
     }
     //This will run if there is no error

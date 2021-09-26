@@ -32,8 +32,8 @@ weatherForm.addEventListener('submit', (e) => {
            <table>
             <tr>
               <td>
+                <p><strong>Location: </strong>${data.location}</p>  
                 <p><strong>Forecast: </strong>${data.forecast.forecast}</p>
-                <p><strong>Location: </strong>${data.location}</p>
                 <p><strong>Temperature: </strong>${data.forecast.temperature}<span>&#176;</span>C</p>
                 <p><strong>Feelslike: </strong>${data.forecast.feelslike}<span>&#176;</span>C</p>
                 <p><strong>Humidity: </strong>${data.forecast.humidity}%</p>
