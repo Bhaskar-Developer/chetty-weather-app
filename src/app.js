@@ -8,6 +8,15 @@ const app = express()
 
 const PORT = process.env.PORT || 3000
 
+//Website Maintainance Code
+app.use((req, res) => {
+  res.render('maintain', {
+    title: 'Weather',
+    name: 'Bhaskar Chetty',
+    message: 'Website is under maintenance. Come back later!'
+  })
+})
+
 //Define Paths for Express Configuration
 const publicDirectoryPath = path.join(__dirname,'../public')
 const viewsDirectoryPath = path.join(__dirname,'../templates/views')
@@ -20,6 +29,7 @@ hbs.registerPartials(partialsDirectoryPath)
 
 //Set up static directory to use
 app.use(express.static(publicDirectoryPath))
+
 app.get('', (req, res) => {
   res.render('index', {
     title: 'Weather',
