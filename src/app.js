@@ -9,13 +9,13 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 //Website Maintainance Code
-app.use((req, res) => {
-  res.render('maintain', {
-    title: 'Weather',
-    name: 'Bhaskar Chetty',
-    message: 'Website is under maintenance. Come back later!'
-  })
-})
+// app.use((req, res) => {
+//   res.render('maintain', {
+//     title: 'Weather',
+//     name: 'Bhaskar Chetty',
+//     message: 'Website is under maintenance. Come back later!'
+//   })
+// })
 
 //Define Paths for Express Configuration
 const publicDirectoryPath = path.join(__dirname,'../public')
@@ -27,9 +27,10 @@ app.set('view engine', 'hbs')
 app.set('views', viewsDirectoryPath)
 hbs.registerPartials(partialsDirectoryPath)
 
-//Set up static directory to use
+//Set up static directory to be served
 app.use(express.static(publicDirectoryPath))
 
+//Home Page
 app.get('', (req, res) => {
   res.render('index', {
     title: 'Weather',
@@ -37,6 +38,7 @@ app.get('', (req, res) => {
   })
 })
 
+//About Page
 app.get('/about', (req, res) => {
   res.render('about', {
     title: 'About Us',
@@ -44,6 +46,7 @@ app.get('/about', (req, res) => {
   })
 })
 
+//Help Page
 app.get('/help', (req, res) => {
   res.render('help', {
     title: 'Help',
@@ -52,6 +55,7 @@ app.get('/help', (req, res) => {
   })
 })
 
+//Weather Route
 app.get('/weather', (req, res) => {
   geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
     if(!req.query.address) {
@@ -73,6 +77,7 @@ app.get('/weather', (req, res) => {
   })  
 })
 
+//Help page that are not found
 app.get('/help/*', (req, res) => {
   res.render('404', {
     title: 'Help',
@@ -81,6 +86,7 @@ app.get('/help/*', (req, res) => {
   })
 })
 
+//404 - Page
 app.get('*', (req, res) => {
   res.render('404', {
     title: '404',
@@ -88,6 +94,7 @@ app.get('*', (req, res) => {
     message: 'Page Not Found'
   })
 })
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
