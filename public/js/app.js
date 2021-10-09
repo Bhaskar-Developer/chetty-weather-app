@@ -3,7 +3,7 @@ const searchInput = document.querySelector('input')
 const divOutput = document.querySelector('.output')
 
 searchInput.addEventListener('keydown', () => {
-  divOutput.innerHTML=``
+  divOutput.innerHTML = ``
 })
 
 weatherForm.addEventListener('submit', (e) => {
@@ -11,24 +11,24 @@ weatherForm.addEventListener('submit', (e) => {
   divOutput.innerHTML = `<p>Loading...</p>`
   const location = searchInput.value
   let url;
-  
-  if(location === '') {
+
+  if (location === '') {
     url = `/weather`
   } else {
-    url = `/weather?address=${location}` 
+    url = `/weather?address=${location}`
   }
-  
+
   fetch(url)
     .then((response) => {
       response.json()
         .then((data) => {
-          if(data.error) {
+          if (data.error) {
             divOutput.innerHTML = `<p class="error"><strong>${data.error}</strong></p>`
             searchInput.value = ''
             return
           }
-          divOutput.innerHTML = 
-          `
+          divOutput.innerHTML =
+            `
            <table>
             <tr>
               <td>
@@ -45,4 +45,4 @@ weatherForm.addEventListener('submit', (e) => {
           searchInput.value = ''
         })
     })
-})  
+})
