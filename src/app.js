@@ -3,14 +3,11 @@ const express = require('express')
 const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
-//const redis = require('redis')
 
 const app = express()
 
 const PORT = process.env.PORT || 3000
-//const REDIS_PORT = process.env.PORT || 6379
 
-//const client = redis.createClient(REDIS_PORT)
 
 //Website Maintainance Code
 // app.use((req, res) => {
